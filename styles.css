@@ -1,0 +1,787 @@
+/* =========================================================
+   TÍTULO CENTRALIZADO NO HEADER
+   ========================================================= */
+
+.header-titulo {
+  position: absolute;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  max-width: 60%;
+
+  color: #781000;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .header-titulo {
+    display: none;
+  }
+}
+
+/* =========================================================
+   HEADER — sempre full width, por cima de tudo
+   ========================================================= */
+
+#meu-header {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  background: white;
+
+  border-bottom: 1px solid #ddd;
+
+  z-index: 10000;
+}
+
+/* =========================================================
+   GRUPO DA DIREITA NO HEADER (somente logos)
+   ========================================================= */
+
+.header-direita {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-left: auto;
+  padding-right: 16px;
+}
+
+.logo-institucional {
+  height: 32px;
+  width: auto;
+
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .logo-institucional {
+    height: 24px;
+  }
+
+  .header-direita {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-institucional {
+    display: none;
+  }
+}
+
+/* =========================================================
+   BOTÃO MODO LEITURA
+   ========================================================= */
+
+#botao-leitura {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 16px;
+
+  border: 1px solid #781000;
+  border-radius: 8px;
+
+  background: white;
+
+  color: #781000;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+#botao-leitura:hover {
+  background-color: #781000;
+
+  color: white;
+
+  box-shadow:
+    0 2px 6px rgba(201, 27, 0, 0.35);
+}
+
+
+#botao-leitura:active {
+  transform: scale(0.97);
+}
+
+
+#botao-leitura svg {
+  width: 18px;
+  height: 18px;
+}
+
+
+/* =========================================================
+   ÍNDICE LATERAL ESQUERDO
+   ========================================================= */
+
+#quarto-sidebar-toc-left {
+  position: fixed !important;
+
+  top: 48px !important;
+  left: 0 !important;
+
+  width: 280px !important;
+  height: calc(100vh - 48px) !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  box-sizing: border-box !important;
+
+  background-color: #781000 !important;
+
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  z-index: 9999 !important;
+}
+
+
+/* =========================================================
+   #TOC — NÃO FIXAR
+   ========================================================= */
+
+#quarto-sidebar-toc-left #TOC {
+  position: relative !important;
+
+  top: auto !important;
+  left: auto !important;
+
+  width: 100% !important;
+  height: auto !important;
+
+  margin: 0 !important;
+
+  padding: 0 12px 20px 12px !important;
+
+  box-sizing: border-box !important;
+
+  background-color: #781000 !important;
+
+  overflow: visible !important;
+}
+
+
+/* =========================================================
+   COR DOS TEXTOS DO ÍNDICE
+   ========================================================= */
+
+#quarto-sidebar-toc-left,
+#quarto-sidebar-toc-left a,
+#quarto-sidebar-toc-left .nav-link,
+#quarto-sidebar-toc-left h2 {
+  color: white !important;
+}
+
+
+/* =========================================================
+   TÍTULO DO ÍNDICE
+   ========================================================= */
+
+#quarto-sidebar-toc-left #toc-title {
+  color: white !important;
+
+  margin-top: 8px !important;
+  margin-bottom: 10px !important;
+}
+
+
+/* =========================================================
+   NÚMEROS DO ÍNDICE
+   ========================================================= */
+
+#quarto-sidebar-toc-left .toc-section-number,
+#quarto-sidebar-toc-left a .toc-section-number,
+#quarto-sidebar-toc-left .nav-link .toc-section-number {
+  color: #ffffff !important;
+
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   LINKS INATIVOS
+   ========================================================= */
+
+#quarto-sidebar-toc-left .nav-link:not(.active),
+#quarto-sidebar-toc-left .nav-link:not(.active) .toc-section-number {
+  color: #ffffff !important;
+
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   ITEM ATIVO
+   ========================================================= */
+
+#quarto-sidebar-toc-left .nav-link.active,
+#quarto-sidebar-toc-left .nav-link.active .toc-section-number {
+  color: #ffffff !important;
+
+  font-weight: 700 !important;
+
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   PESQUISA DO ÍNDICE
+   ========================================================= */
+
+#toc-pesquisa-container {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+
+  width: 100%;
+
+  padding: 10px 12px;
+
+  box-sizing: border-box;
+
+  background-color: #781000;
+}
+
+/* Mostra os subtópicos durante a busca, mesmo em navegadores sem suporte a :has() */
+#quarto-sidebar-toc-left.toc-pesquisando #TOC > ul > li > ul {
+  display: block !important;
+}
+
+/* =========================================================
+   CAMPO DE PESQUISA
+   ========================================================= */
+
+#toc-pesquisa {
+  display: block;
+
+  width: 100%;
+  height: 36px;
+
+  padding: 6px 10px 6px 38px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+
+  border-radius: 7px;
+
+  background-color: rgba(255, 255, 255, 0.12);
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 0.85rem;
+
+  outline: none;
+}
+
+
+#toc-pesquisa::placeholder {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+#toc-pesquisa:focus {
+  background-color: white;
+
+  color: #333;
+
+  border-color: white;
+
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+
+#toc-pesquisa:focus::placeholder {
+  color: #777;
+}
+
+.toc-pesquisa-icone {
+  position: absolute;
+
+  top: 50%;
+  left: 22px;
+  transform: translateY(-50%);
+
+  font-size: 18px;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   ITENS OCULTADOS PELA PESQUISA
+   ========================================================= */
+
+#TOC li.toc-item-oculto {
+  display: none !important;
+}
+
+/* Destaca o tópico principal da página atualmente aberta. */
+#quarto-sidebar-toc-left #TOC > ul > li > .nav-link.active,
+#quarto-sidebar-toc-left #TOC > ul > li > .nav-link.active .toc-section-number {
+  font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   ÍNDICE ESQUERDO — SOMENTE SEÇÕES PRINCIPAIS
+   Os subtítulos (##, ### etc.) são exibidos no subíndice direito.
+   ========================================================= */
+
+#quarto-sidebar-toc-left #TOC > ul > li > ul {
+  display: none !important;
+}
+
+/* Durante uma busca, revela os subtópicos para exibir os resultados. */
+#quarto-sidebar-toc-left:has(#toc-pesquisa:not(:placeholder-shown))
+  #TOC > ul > li > ul {
+  display: block !important;
+}
+
+
+/* =========================================================
+   CONTEÚDO — MODO NORMAL
+   ========================================================= */
+
+body:not(.modo-leitura) #quarto-content {
+  width: 100% !important;
+
+  max-width: none !important;
+
+  margin: 0 !important;
+
+  padding-top: 60px !important;
+
+  padding-left: 310px !important;
+
+  padding-right: 40px !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   GRID PRINCIPAL — MODO NORMAL
+   ========================================================= */
+
+body:not(.modo-leitura) .page-columns {
+  display: block !important;
+
+  width: 100% !important;
+
+  max-width: none !important;
+}
+
+
+/* =========================================================
+   MAIN — MODO NORMAL
+   ========================================================= */
+
+body:not(.modo-leitura) .page-columns > main.content,
+body:not(.modo-leitura) #quarto-document-content {
+  width: 100% !important;
+
+  max-width: none !important;
+
+  margin: 0 !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   MODO LEITURA — OCULTAR ÍNDICE
+   ========================================================= */
+
+body.modo-leitura #quarto-sidebar-toc-left {
+  display: none !important;
+}
+
+
+/* =========================================================
+   MODO LEITURA — REMOVER ESTRUTURA DO QUARTO
+   ========================================================= */
+
+body.modo-leitura .page-columns {
+  display: block !important;
+
+  width: 100% !important;
+
+  max-width: none !important;
+}
+
+
+/* =========================================================
+   MODO LEITURA — ÁREA CENTRAL
+   ========================================================= */
+
+body.modo-leitura #quarto-content {
+  width: min(60%, 1400px) !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  padding-top: 60px !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   MODO LEITURA — MAIN
+   ========================================================= */
+
+body.modo-leitura main {
+  width: 100% !important;
+
+  max-width: none !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+/* =========================================================
+   CELULAR / TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+  #meu-header {
+    height: 48px;
+
+    padding: 0 8px;
+  }
+
+  #quarto-sidebar-toc-left {
+    width: 220px !important;
+
+    top: 48px !important;
+
+    height: calc(100vh - 48px) !important;
+  }
+  
+  #toc-pesquisa-container {
+    padding: 8px;
+  }
+
+  #toc-pesquisa {
+    height: 34px;
+
+    font-size: 0.8rem;
+
+    padding-left: 34px;
+  }
+
+  .toc-pesquisa-icone {
+    left: 18px;
+    font-size: 16px;
+  }
+
+  body:not(.modo-leitura) #quarto-content {
+    padding-top: 60px !important;
+
+    padding-left: 232px !important;
+
+    padding-right: 12px !important;
+  }
+
+  body:not(.modo-leitura) .page-columns > main.content,
+  body:not(.modo-leitura) #quarto-document-content {
+    padding: 0 !important;
+  }
+
+  body.modo-leitura #quarto-content {
+    width: 100% !important;
+
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+
+    padding-top: 60px !important;
+  }
+}
+
+
+/* =========================================================
+   CELULAR PEQUENO
+   ========================================================= */
+
+@media (max-width: 480px) {
+  body:not(.modo-leitura) #quarto-sidebar-toc-left {
+    width: 190px !important;
+  }
+
+  body:not(.modo-leitura) #quarto-content {
+    padding-left: 202px !important;
+
+    padding-right: 10px !important;
+  }
+
+  #botao-leitura {
+    padding: 7px 10px;
+
+    font-size: 0.82rem;
+  }
+
+  #botao-leitura svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  #toc-pesquisa-container {
+    padding: 8px;
+  }
+
+  #toc-pesquisa {
+    height: 34px;
+
+    font-size: 0.8rem;
+  }
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO ENTRE SEÇÕES PRINCIPAIS
+   ========================================================= */
+
+.pagina-secao[hidden] {
+  display: none !important;
+}
+
+
+.navegacao-secoes {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin: 3rem 0 2.5rem;
+  padding-top: 1.25rem;
+
+  border-top: 1px solid #e3e3e3;
+}
+
+
+.nav-secao {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.45rem;
+
+  min-height: 2.6rem;
+
+  padding: 0.55rem 1rem;
+
+  border: 1px solid #781000;
+  border-radius: 0.5rem;
+
+  background: #ffffff;
+  color: #781000;
+
+  font: inherit;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.nav-secao:hover,
+.nav-secao:focus-visible {
+  background-color: #781000;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 2px 6px rgba(120, 16, 0, 0.35);
+}
+
+
+.nav-secao:focus-visible {
+  outline: 3px solid rgba(120, 16, 0, 0.25);
+
+  outline-offset: 2px;
+}
+
+
+.nav-secao-proxima {
+  margin-left: auto;
+}
+
+
+/* Evita que o título fique escondido sob o cabeçalho fixo. */
+
+#quarto-document-content h1 {
+  scroll-margin-top: 68px;
+}
+
+
+@media (max-width: 768px) {
+  .navegacao-secoes {
+    gap: 0.75rem;
+
+    margin: 2.25rem 0 2rem;
+  }
+
+  .nav-secao {
+    flex: 1 1 0;
+
+    padding: 0.65rem 0.7rem;
+
+    font-size: 0.92rem;
+  }
+}
+
+/* =========================================================
+   SUBÍNDICE DIREITO — PÁGINA ATIVA
+   ========================================================= */
+
+#subindice-direito {
+  position: fixed;
+
+  top: 48px;
+  right: 0;
+
+  width: 250px;
+  height: calc(100vh - 48px);
+
+  overflow-y: auto;
+
+  padding: 18px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border-left: 1px solid #e3e3e3;
+
+  z-index: 9000;
+}
+
+#subindice-direito h2 {
+  margin: 0 0 12px;
+
+  color: #781000;
+
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+#subindice-direito ul {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+#subindice-direito li {
+  margin-bottom: 9px;
+}
+
+#subindice-direito a {
+  color: #444;
+
+  font-size: 0.88rem;
+  line-height: 1.35;
+
+  text-decoration: none;
+}
+
+#subindice-direito a:hover {
+  color: #781000;
+
+  text-decoration: underline;
+}
+
+#subindice-direito a.active {
+  color: #781000;
+
+  font-weight: 700;
+}
+
+#subindice-direito .subindice-principal {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #781000;
+}
+
+#subindice-direito .subindice-nivel-3 {
+  margin-left: 14px;
+
+  font-size: 0.92em;
+}
+
+/* Reserva espaço para o subíndice à direita. */
+body:not(.modo-leitura) #quarto-content {
+  padding-right: 290px !important;
+}
+
+/* No modo leitura, o foco permanece somente no texto. */
+body.modo-leitura #subindice-direito {
+  display: none !important;
+}
+
+/* Em telas pequenas, o subíndice não cobre o conteúdo. */
+@media (max-width: 1000px) {
+  #subindice-direito {
+    display: none !important;
+  }
+
+  body:not(.modo-leitura) #quarto-content {
+    padding-right: 12px !important;
+  }
+}

@@ -1,0 +1,23 @@
+---
+title: "Estatística e Introdução à Econometria"
+subtitle: "Versão 3.0"
+author: "Prof. Marcelo Justus — Instituto de Economia, UNICAMP"
+date: "2026-05-30"
+lang: pt
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-location: left
+    number-sections: true
+    css: styles.css
+    embed-resources: true
+    include-in-header:
+      text: |
+        <script src="leitura.js"></script>
+
+execute:
+  warning: false
+  message: false
+---
