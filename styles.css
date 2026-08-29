@@ -1,0 +1,286 @@
+/* =========================================================
+   HEADER — sempre full width, por cima de tudo
+   ========================================================= */
+
+#meu-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 12px;
+  box-sizing: border-box;
+
+  background: white;
+  border-bottom: 1px solid #ddd;
+
+  z-index: 10000;
+}
+
+
+/* =========================================================
+   BOTÃO MODO LEITURA
+   ========================================================= */
+
+#botao-leitura {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 16px;
+
+  border: 1px solid #C91B00;
+  border-radius: 8px;
+
+  background: white;
+  color: #C91B00;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+#botao-leitura:hover {
+  background-color: #C91B00;
+  color: white;
+
+  box-shadow:
+    0 2px 6px rgba(201, 27, 0, 0.35);
+}
+
+
+#botao-leitura:active {
+  transform: scale(0.97);
+}
+
+
+#botao-leitura svg {
+  width: 18px;
+  height: 18px;
+}
+
+
+/* =========================================================
+   ÍNDICE LATERAL ESQUERDO
+   ========================================================= */
+
+#quarto-sidebar-toc-left,
+#TOC {
+  position: fixed !important;
+
+  top: 48px !important;
+  left: 0 !important;
+
+  width: 270px !important;
+  height: calc(100vh - 48px) !important;
+
+  overflow-y: auto !important;
+
+  background-color: #C91B00 !important;
+
+  padding: 8px 12px !important;
+  margin: 0 !important;
+
+  box-sizing: border-box !important;
+
+  z-index: 9999;
+}
+
+
+/* =========================================================
+   COR DOS TEXTOS DO ÍNDICE
+   ========================================================= */
+
+#quarto-sidebar-toc-left,
+#TOC,
+#quarto-sidebar-toc-left a,
+#TOC a,
+#quarto-sidebar-toc-left .nav-link,
+#TOC .nav-link,
+#quarto-sidebar-toc-left h2,
+#TOC h2 {
+  color: white !important;
+}
+
+
+/* =========================================================
+   NÚMEROS DO ÍNDICE — SEMPRE BRANCOS
+   ========================================================= */
+
+#TOC .toc-section-number,
+#TOC a .toc-section-number,
+#TOC .nav-link .toc-section-number,
+#quarto-sidebar-toc-left .toc-section-number,
+#quarto-sidebar-toc-left a .toc-section-number,
+#quarto-sidebar-toc-left .nav-link .toc-section-number {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   NÚMEROS DE SUBSEÇÕES — BRANCOS
+   ========================================================= */
+
+#TOC ol .toc-section-number,
+#TOC ul .toc-section-number,
+#quarto-sidebar-toc-left ol .toc-section-number,
+#quarto-sidebar-toc-left ul .toc-section-number {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   LINKS INATIVOS — TEXTO E NÚMERO BRANCOS
+   ========================================================= */
+
+#TOC .nav-link:not(.active),
+#TOC .nav-link:not(.active) .toc-section-number,
+#quarto-sidebar-toc-left .nav-link:not(.active),
+#quarto-sidebar-toc-left .nav-link:not(.active) .toc-section-number {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   ITEM ATIVO — TEXTO E NÚMERO BRANCOS + NEGRITO
+   ========================================================= */
+
+#TOC .nav-link.active,
+#TOC .nav-link.active .toc-section-number,
+#quarto-sidebar-toc-left .nav-link.active,
+#quarto-sidebar-toc-left .nav-link.active .toc-section-number {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  opacity: 1 !important;
+}
+
+
+/* =========================================================
+   CONTEÚDO — MODO NORMAL
+   ========================================================= */
+
+/*
+   O índice ocupa 270px à esquerda.
+   O conteúdo utiliza todo o espaço restante da janela.
+*/
+
+body:not(.modo-leitura) #quarto-content {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 0 !important;
+
+  padding-top: 60px !important;
+  padding-left: 50px;
+  padding-right: 280px;
+
+  box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   GRID PRINCIPAL DO QUARTO — MODO NORMAL
+   ========================================================= */
+
+/*
+   Remove a coluna lateral interna que o Quarto
+   normalmente reserva para o conteúdo.
+*/
+
+body:not(.modo-leitura) .page-columns {
+  display: grid !important;
+
+  grid-template-columns:
+    270px
+    minmax(0, 1fr) !important;
+
+  column-gap: 0 !important;
+
+  width: 100% !important;
+  max-width: none !important;
+}
+
+
+/* =========================================================
+   MAIN — MODO NORMAL
+   ========================================================= */
+
+body:not(.modo-leitura) .page-columns > main.content,
+body:not(.modo-leitura) #quarto-document-content {
+  grid-column: 2 !important;
+
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 0 !important;
+
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* =========================================================
+   MODO LEITURA — OCULTAR ÍNDICE
+   ========================================================= */
+
+body.modo-leitura #TOC,
+body.modo-leitura #quarto-sidebar-toc-left {
+  display: none !important;
+}
+
+
+/* =========================================================
+   MODO LEITURA — REMOVER GRID
+   ========================================================= */
+
+body.modo-leitura .page-columns {
+  display: block !important;
+}
+
+
+/* =========================================================
+   MODO LEITURA — ÁREA CENTRAL
+   ========================================================= */
+
+body.modo-leitura #quarto-content {
+  width: 50%;
+  max-width: 1400px;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  /*
+     Espaço para o header fixo.
+     Evita que o título fique atrás do header.
+  */
+  padding-top: 25px !important;
+}
+
+
+/* =========================================================
+   MODO LEITURA — MAIN
+   ========================================================= */
+
+body.modo-leitura main {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
