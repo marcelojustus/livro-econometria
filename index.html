@@ -7357,6 +7357,10 @@ log(price_cit) -0.5919384 -0.4741685</code></pre>
 </section>
 <section id="parte-iii---experimento-ideal-e-fundamentos-da-regressão" class="level1 unnumbered">
 <h1 class="unnumbered">Parte III - Experimento Ideal e Fundamentos da Regressão</h1>
+<p>Na Parte I, discutimos a natureza da econometria e estabelecemos uma ideia que orienta toda esta apostila: <em>o ponto de partida da análise empírica deve ser a pergunta de pesquisa, e não a técnica econométrica</em>. Vimos que associação estatística não implica causalidade e que uma investigação causal exige definir com clareza o efeito de interesse, imaginar o experimento ideal, formular uma estratégia de identificação compatível com os dados disponíveis e escolher adequadamente o modo de inferência. A Parte II forneceu a base estatística necessária para avançarmos nessa direção.</p>
+<p>Esta terceira parte retoma esses princípios para apresentar os <em>fundamentos da econometria moderna. O objetivo é compreender como a lógica do </em>ceteris paribus pode ser formalizada e aproximada empiricamente. Começamos pelo modelo de resultados potenciais, que explicita o contrafactual e permite definir com precisão o efeito causal e o problema de seleção. Em seguida, estudamos por que a atribuição aleatória constitui a referência para a identificação causal e como a regressão pode ser utilizada na análise de experimentos.</p>
+<p>A discussão avança então para dados observacionais, nos quais a comparabilidade entre unidades não é garantida pelo desenho. Nesse contexto, a regressão é apresentada tanto como uma ferramenta para descrever relações estatísticas, por meio da função de esperança condicional, quanto como instrumento potencial de identificação causal sob hipóteses apropriadas. Ganham destaque a independência condicional, o viés de variável omitida, a escolha criteriosa de controles e os limites da interpretação causal.</p>
+<p>Assim, esta parte conecta os fundamentos estatísticos estudados anteriormente à questão central introduzida desde o início da apostila: <em>como transformar dados em evidência empiricamente defensável sobre relações de causa e efeito</em>.</p>
 </section>
 <section id="experimento-ideal" class="level1" data-number="11">
 <h1 data-number="11"><span class="header-section-number">11</span> Experimento ideal</h1>
@@ -9412,8 +9416,8 @@ Y_i
 <span id="cb159-10"><a href="#cb159-10" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            used   (Mb) gc trigger   (Mb)  max used   (Mb)
-Ncells   4018699  214.7    5905901  315.5   5905901  315.5
-Vcells 175307155 1337.5  533495402 4070.3 553999989 4226.7</code></pre>
+Ncells   4018727  214.7    5906071  315.5   5906071  315.5
+Vcells 175308134 1337.5  533496341 4070.3 554000968 4226.7</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb161"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Passando o objeto de amostra complexa (svy) para um data frame</span></span>
 <span id="cb161-2"><a href="#cb161-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -9672,8 +9676,8 @@ Vcells 175307155 1337.5  533495402 4070.3 553999989 4226.7</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb187"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href="#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            used   (Mb) gc trigger   (Mb)  max used   (Mb)
-Ncells   4055992  216.7    5905901  315.5   5905901  315.5
-Vcells 175863485 1341.8  533495402 4070.3 553999989 4226.7</code></pre>
+Ncells   4056020  216.7    5906071  315.5   5906071  315.5
+Vcells 175864464 1341.8  533496341 4070.3 554000968 4226.7</code></pre>
 </div>
 </div>
 </section>
