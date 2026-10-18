@@ -63,7 +63,4 @@ Conforme declarado pelo autor, os códigos em R foram elaborados com base em exe
 ## Como citar
  
 > JUSTUS, Marcelo. **Princípios de Econometria**. Versão 3.0. Campinas: Instituto de Economia, Universidade Estadual de Campinas, 2026. Disponível em: <https://marcelojustus.github.io/livro-econometria/>.
- 
-## Contribuições
- 
-Correções e sugestões de conteúdo devem ser encaminhadas ao autor (mjustus@unicamp.br) ou ao [repositório original](https://github.com/marcelojustus/livro-econometria).
+
